@@ -1,24 +1,52 @@
 import {createNavigationContainerRef} from '@react-navigation/native';
 
-const navigationRef = createNavigationContainerRef();
+export const navigationRef = createNavigationContainerRef();
 
-const setNavigator = nav => {
+export const setNavigator = nav => {
   navigator = nav;
 };
 
-const navigate = (name, params) => {
+export const navigate = (name, params) => {
   navigationRef.navigate(name, params);
 };
 
-const reset = (name, params) => {
+export const resetDetail = async (name, screens) => {
   navigationRef.reset({
     index: 0,
-    routes: [{name: name, scren: params}],
+    routes: [{name: name}],
+  });
+  await navigationRef.navigate(name, screens);
+};
+
+export const reset = (name, params) => {
+  navigationRef.reset({
+    index: 0,
+    routes: [{name: name, screens: params}],
   });
 };
 
-const goBack = () => {
+export const goBack = () => {
   navigationRef.goBack();
 };
 
-export {navigationRef, setNavigator, navigate, reset, goBack};
+export const navigationEvent = name => {
+  navigationRef.isFocused(name);
+};
+
+export const getParams = (name, params) => {
+  navigationRef.getParams(name, params);
+};
+
+export const resetHome = params => {
+  navigationRef.reset({
+    index: 1,
+    routes: [
+      {
+        name: 'MainApp',
+      },
+      {
+        name: params,
+      },
+    ],
+  });
+};
