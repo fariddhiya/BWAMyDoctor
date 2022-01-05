@@ -1,4 +1,4 @@
-import {colors} from '../../../utils';
+import {colors, fonts} from '../../../utils';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   }),
   text: type => ({
     fontSize: 18,
-    fontFamily: 'Nunito-SemiBold',
+    fontFamily: fonts.primary[600],
     textAlign: 'center',
     color:
       type === 'secondary'

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../../utils';
+import {colors, fonts} from '../../../utils';
 
 const styles = StyleSheet.create({
   input: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.text.secondary,
     marginBottom: 6,
-    fontFamily: 'Nunito-Regular',
+    fontFamily: fonts.primary.normal,
   },
 });
 

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../utils';
+import {colors, fonts} from '../../utils';
 
 const styles = StyleSheet.create({
   page: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: 'Nunito-SemiBold',
+    fontFamily: fonts.primary[600],
     color: colors.text.primary,
     marginVertical: 40,
   },
