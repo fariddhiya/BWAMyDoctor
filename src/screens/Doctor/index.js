@@ -1,5 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {DummyDoctor1} from '../../assets';
+import {dataCategory} from '../../assets/dummy/dataDummy';
 import {
   DoctorCategory,
   Gap,
@@ -7,9 +9,13 @@ import {
   NewsItem,
   RatedDoctor,
 } from '../../component';
-import {colors, fonts} from '../../utils';
+import * as RootNavigation from '../../RootNavigation';
+import {styles} from './styles';
 
 export default function Doctor() {
+  const handlerChooseDoctor = () => {
+    RootNavigation.navigate('ChooseDoctor');
+  };
   return (
     <SafeAreaView style={styles.page}>
       <View style={styles.content}>
@@ -26,10 +32,16 @@ export default function Doctor() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View style={styles.category}>
                 <Gap width={32} />
-                <DoctorCategory />
-                <DoctorCategory />
-                <DoctorCategory />
-                <DoctorCategory />
+                {dataCategory.map(item => {
+                  return (
+                    <DoctorCategory
+                      category={item.category}
+                      key={item.id}
+                      onPress={handlerChooseDoctor}
+                    />
+                  );
+                })}
+
                 <Gap width={22} />
               </View>
               <Gap height={30} />
@@ -37,9 +49,21 @@ export default function Doctor() {
           </View>
           <View style={styles.wrapperSection}>
             <Text style={styles.sectionLabel}>Top Rated Doctors</Text>
-            <RatedDoctor />
-            <RatedDoctor />
-            <RatedDoctor />
+            <RatedDoctor
+              name={'Alexa Rachel'}
+              desc={'Pediatrician'}
+              avatar={DummyDoctor1}
+            />
+            <RatedDoctor
+              name={'Alexa Rachel'}
+              desc={'Pediatrician'}
+              avatar={DummyDoctor1}
+            />
+            <RatedDoctor
+              name={'Alexa Rachel'}
+              desc={'Pediatrician'}
+              avatar={DummyDoctor1}
+            />
             <Text style={styles.sectionLabel}>Good News</Text>
             <NewsItem />
             <NewsItem />
@@ -50,41 +74,3 @@ export default function Doctor() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: colors.secondary,
-    flex: 1,
-  },
-  welcome: {
-    fontSize: 20,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    marginTop: 30,
-    marginBottom: 16,
-    maxWidth: 209,
-  },
-  category: {
-    flexDirection: 'row',
-  },
-  wrapperScroll: {
-    marginHorizontal: -16,
-  },
-  content: {
-    backgroundColor: colors.white,
-    flex: 1,
-
-    borderBottomEndRadius: 20,
-    borderBottomStartRadius: 20,
-  },
-  sectionLabel: {
-    fontSize: 16,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    marginTop: 30,
-    marginBottom: 16,
-  },
-  wrapperSection: {
-    paddingHorizontal: 16,
-  },
-});

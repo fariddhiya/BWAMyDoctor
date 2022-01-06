@@ -3,13 +3,12 @@ import {
   FlatList,
   ImageBackground,
   SafeAreaView,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
 import {dataHospital, ILHospitalBG} from '../../assets';
 import {ListHospital} from '../../component';
-import {colors, fonts} from '../../utils';
+import {styles} from './styles';
 
 export default function Hospitals() {
   return (
@@ -28,7 +27,6 @@ export default function Hospitals() {
                 type={item.type}
                 name={item.name}
                 address={item.address}
-                pic={item.pic}
               />
             );
           }}
@@ -37,34 +35,3 @@ export default function Hospitals() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  background: {
-    height: 240,
-    paddingTop: 30,
-  },
-  title: {
-    fontSize: 20,
-    fontFamily: fonts.primary[600],
-    color: colors.white,
-    textAlign: 'center',
-  },
-  desc: {
-    fontSize: 14,
-    fontFamily: fonts.primary[300],
-    color: colors.white,
-    marginTop: 6,
-    textAlign: 'center',
-  },
-  page: {
-    flex: 1,
-    backgroundColor: colors.secondary,
-  },
-  content: {
-    borderRadius: 20,
-    marginTop: -30,
-    backgroundColor: colors.white,
-    flex: 1,
-    paddingTop: 14,
-  },
-});

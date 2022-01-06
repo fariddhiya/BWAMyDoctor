@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View, SafeAreaView, FlatList} from 'react-native';
+import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import {dataDoctor} from '../../assets';
-import {ListDoctor} from '../../component';
-import {colors, fonts} from '../../utils';
+import {List} from '../../component';
+import {styles} from './styles';
 
 export default function Messages() {
   return (
@@ -13,36 +13,10 @@ export default function Messages() {
           data={dataDoctor}
           keyExtractor={(index, value) => value}
           renderItem={({item}) => {
-            return (
-              <ListDoctor
-                profile={item.profile}
-                name={item.name}
-                desc={item.desc}
-              />
-            );
+            return <List name={item.name} desc={item.desc} key={item.id} />;
           }}
         />
       </View>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: colors.secondary,
-    flex: 1,
-  },
-  content: {
-    backgroundColor: colors.white,
-    flex: 1,
-    borderBottomEndRadius: 20,
-    borderBottomStartRadius: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    marginTop: 30,
-    marginLeft: 16,
-  },
-});

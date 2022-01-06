@@ -1,16 +1,20 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {DummyDoctor1, IconStar} from '../../../assets';
 import {colors, fonts} from '../../../utils';
+import * as RootNavigation from '../../../RootNavigation';
 
-export default function RatedDoctor() {
+export default function RatedDoctor({name, desc, avatar}) {
+  const handlerDoctorProfile = () => {
+    RootNavigation.navigate('DoctorProfile');
+  };
   return (
-    <View style={styles.container}>
-      <Image source={DummyDoctor1} style={styles.avatar} />
+    <TouchableOpacity style={styles.container} onPress={handlerDoctorProfile}>
+      <Image source={avatar} style={styles.avatar} />
       <View style={styles.profile}>
         <View>
-          <Text style={styles.name}>Alexa Rachel</Text>
-          <Text style={styles.category}>Pediatrician</Text>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.category}>{desc}</Text>
         </View>
       </View>
 
@@ -21,7 +25,7 @@ export default function RatedDoctor() {
         <IconStar />
         <IconStar />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

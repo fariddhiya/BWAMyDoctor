@@ -3,8 +3,12 @@ import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {IconAddPhoto, ILNullPhoto} from '../../assets';
 import {Button, Gap, Header, Link} from '../../component';
 import {colors, fonts} from '../../utils';
+import * as RootNavigation from '../../RootNavigation';
 
 export default function UploadPhoto() {
+  const handlerMainApp = () => {
+    RootNavigation.reset('MainApp');
+  };
   return (
     <SafeAreaView style={styles.page}>
       <Header title={'Upload Photo'} />
@@ -23,9 +27,14 @@ export default function UploadPhoto() {
         </View>
 
         <View>
-          <Button title={'Upload and Continuer'} />
+          <Button title={'Upload and Continue'} onPress={handlerMainApp} />
           <Gap height={30} />
-          <Link title={'Skip for this'} align={'center'} size={16} />
+          <Link
+            title={'Skip for this'}
+            align={'center'}
+            size={16}
+            onPress={handlerMainApp}
+          />
         </View>
       </View>
     </SafeAreaView>

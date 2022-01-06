@@ -9,6 +9,9 @@ export default function Login() {
   const handlerMainApp = () => {
     RootNavigation.reset('MainApp');
   };
+  const handlerRegister = () => {
+    RootNavigation.navigate('Register');
+  };
   return (
     <SafeAreaView style={styles.page}>
       <ILLogo />
@@ -21,7 +24,12 @@ export default function Login() {
       <Gap height={40} />
       <Button title={'Sign In'} onPress={handlerMainApp} />
       <Gap height={30} />
-      <Link title={'Create New Account'} size={16} align={'center'} />
+      <Link
+        title={'Create New Account'}
+        size={16}
+        align={'center'}
+        onPress={handlerRegister}
+      />
     </SafeAreaView>
   );
 }

@@ -1,8 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {IconBackDark, IconBackLight} from '../../../assets';
+import * as RootNavigation from '../../../RootNavigation';
 
-export default function IconOnly({onPress, icon}) {
+export default function IconOnly({icon}) {
+  const handlerBack = () => {
+    RootNavigation.goBack('');
+  };
   const Icon = () => {
     if (icon === 'back-dark') {
       return <IconBackDark />;
@@ -13,7 +17,7 @@ export default function IconOnly({onPress, icon}) {
     return <IconBackDark />;
   };
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={handlerBack}>
       <Icon />
     </TouchableOpacity>
   );

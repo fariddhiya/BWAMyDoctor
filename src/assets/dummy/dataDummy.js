@@ -1,5 +1,11 @@
-import {DummyDoctor1, DummyDoctor2, DummyDoctor3} from '.';
-import {DummyHospital1, DummyHospital2, DummyHospital3} from '../../assets';
+import {
+  DummyDoctor1,
+  DummyDoctor2,
+  DummyDoctor3,
+  DummyHospital1,
+  DummyHospital2,
+  DummyHospital3,
+} from '../../assets';
 import {ILCatObat, ILCatPsikiater, ILCatUmum} from '../illustration';
 
 const dataHospital = [
@@ -50,18 +56,19 @@ const dataDoctor = [
 const dataCategory = [
   {
     id: 1,
-    category: 'umum',
-    pic: ILCatUmum,
+    category: 'dokter umum',
   },
   {
     id: 2,
     category: 'psikiater',
-    pic: ILCatPsikiater,
   },
   {
     id: 3,
-    category: 'obat',
-    pic: ILCatObat,
+    category: 'dokter obat',
+  },
+  {
+    id: 4,
+    category: 'dokter umum',
   },
 ];
 
