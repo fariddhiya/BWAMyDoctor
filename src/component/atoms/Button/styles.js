@@ -19,6 +19,17 @@ const styles = StyleSheet.create({
         ? colors.button.secondary.text
         : colors.button.primary.text,
   }),
+  disableContainer: {
+    paddingVertical: 10,
+    borderRadius: 10,
+    backgroundColor: colors.button.disable.background,
+  },
+  disableText: {
+    fontSize: 18,
+    fontFamily: fonts.primary[600],
+    textAlign: 'center',
+    color: colors.button.disable.text,
+  },
 });
 
 export default styles;

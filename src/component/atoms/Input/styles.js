@@ -2,12 +2,12 @@ import {StyleSheet} from 'react-native';
 import {colors, fonts} from '../../../utils';
 
 const styles = StyleSheet.create({
-  input: {
+  input: border => ({
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: border,
     borderRadius: 10,
     padding: 12,
-  },
+  }),
   label: {
     fontSize: 16,
     color: colors.text.secondary,

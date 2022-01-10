@@ -12,9 +12,13 @@ export default function Button({type, title, onPress, icon, disable}) {
     return <IconOnly icon={icon} />;
   }
   return (
-    <TouchableOpacity style={styles.container(type)} onPress={onPress}>
-      {console.log(title)}
-      <Text style={styles.text(type)}>{title}</Text>
+    <TouchableOpacity
+      style={disable ? styles.disableContainer : styles.container(type)}
+      onPress={onPress}
+      disabled={disable ? true : false}>
+      <Text style={disable ? styles.disableText : styles.text(type)}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 }

@@ -7,9 +7,12 @@ const mainColors = {
   grey1: '#7D8797',
   grey2: '#E9E9E9',
   grey3: '#EDEEF0',
+  grey4: '#B1B7C2',
   blue1: '#0066CB',
   white: '#ffffff',
-  black: '#000000',
+  black1: '#000000',
+  black2: 'rgba(0, 0, 0, 0.5)',
+  red1: '#E06379',
 };
 
 export const colors = {
@@ -25,7 +28,7 @@ export const colors = {
     subTitle: mainColors.dark3,
   },
   white: mainColors.white,
-  black: mainColors.black,
+  black: mainColors.black1,
   button: {
     primary: {
       background: mainColors.green1,
@@ -35,7 +38,13 @@ export const colors = {
       background: mainColors.white,
       text: mainColors.dark1,
     },
+    disable: {
+      background: mainColors.grey3,
+      text: mainColors.grey4,
+    },
   },
   border: mainColors.grey2,
   cardLight: mainColors.green2,
+  loadingBackground: mainColors.black2,
+  error: mainColors.red1,
 };

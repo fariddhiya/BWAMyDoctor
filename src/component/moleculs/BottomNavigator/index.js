@@ -7,7 +7,6 @@ export default function BottomNavigator({state, descriptors, navigation}) {
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
-        console.log();
         const {options} = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
