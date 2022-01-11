@@ -3,7 +3,7 @@ import {colors, fonts} from '../../utils';
 
 const styles = StyleSheet.create({
   page: {
-    padding: 40,
+    paddingHorizontal: 40,
     backgroundColor: colors.white,
     flex: 1,
   },

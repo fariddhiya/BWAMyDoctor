@@ -3,7 +3,7 @@ import {Text, TextInput, View} from 'react-native';
 import {colors} from '../../../utils';
 import styles from './styles';
 
-export default function Input({label, value, onChangeText}) {
+export default function Input({label, value, onChangeText, secureTextEntry}) {
   const [border, setBorder] = useState(colors.border);
   const onFocusForm = () => {
     setBorder(colors.tertiary);
@@ -20,6 +20,7 @@ export default function Input({label, value, onChangeText}) {
         style={styles.input(border)}
         value={value}
         onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry ? true : false}
       />
     </View>
   );

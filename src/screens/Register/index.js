@@ -3,7 +3,6 @@ import {getDatabase, ref, set} from 'firebase/database';
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import {showMessage} from 'react-native-flash-message';
-import Fire from '../../api/Fire';
 import {Button, Gap, Header, Input, Loading} from '../../component';
 import {useForm} from '../../hooks';
 import * as RootNavigation from '../../RootNavigation';

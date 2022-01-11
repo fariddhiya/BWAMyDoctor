@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {DummyDoctor1} from '../../assets';
 import {dataCategory} from '../../assets/dummy/dataDummy';
@@ -10,9 +10,15 @@ import {
   RatedDoctor,
 } from '../../component';
 import * as RootNavigation from '../../RootNavigation';
+import {getData} from '../../utils';
 import {styles} from './styles';
 
 export default function Doctor() {
+  useEffect(() => {
+    getData('user').then(res => {
+      console.log('data user', res);
+    });
+  });
   const handlerChooseDoctor = () => {
     RootNavigation.navigate('ChooseDoctor');
   };

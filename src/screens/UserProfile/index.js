@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {Gap, Header, List, Profile} from '../../component';
 import * as RootNavigation from '../../RootNavigation';
 import {colors} from '../../utils';
 
 export default function UserProfile() {
+  const [profile, setProfile] = useState({
+    fullName: '',
+    profession: '',
+  });
+
+  console.log(profile);
+
   const handlerEditProfile = () => {
     RootNavigation.navigate('UpdateProfile');
   };
@@ -12,7 +19,10 @@ export default function UserProfile() {
     <SafeAreaView style={styles.page}>
       <Header title={'Profile'} />
       <Gap height={10} />
-      <Profile name={'Shayna Melinda'} desc={'Product Designer'} />
+      {profile.fullName.length > 0 && (
+        <Profile name={profile.fullName} desc={profile.profession} />
+      )}
+
       <Gap height={14} />
       <List
         name={'Edit Profile'}
@@ -22,19 +32,19 @@ export default function UserProfile() {
         onPress={handlerEditProfile}
       />
       <List
-        name={'Edit Profile'}
+        name={'Language'}
         desc={'Last Update Yesterday'}
         type={'next'}
         icon={'edit-profile'}
       />
       <List
-        name={'Edit Profile'}
+        name={'Give Us Rate'}
         desc={'Last Update Yesterday'}
         type={'next'}
         icon={'edit-profile'}
       />
       <List
-        name={'Edit Profile'}
+        name={'Help Center'}
         desc={'Last Update Yesterday'}
         type={'next'}
         icon={'edit-profile'}

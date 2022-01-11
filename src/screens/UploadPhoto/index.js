@@ -13,16 +13,26 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import {IconAddPhoto, IconRemovePhoto, ILNullPhoto} from '../../assets';
 import {Button, Gap, Header, Link} from '../../component';
 import * as RootNavigation from '../../RootNavigation';
-import {colors, fonts} from '../../utils';
+import {colors, fonts, storeData} from '../../utils';
 
 export default function UploadPhoto({route}) {
   const {fullName, profession, uid} = route.params;
+  // let fullName = 'farid';
+  // let profession = 'tukang ngoding';
+  // let uid = 31232112;
+
   const [photoForDB, setPhotoForDB] = useState();
   const [hasPhoto, setHasPhoto] = useState(false);
   const [photo, setPhoto] = useState(ILNullPhoto);
   const handlerMainApp = () => {
     const db = getDatabase();
     update(ref(db, 'users/' + uid), {photo: photoForDB});
+
+    const data = route.params;
+    data.photo = photoForDB;
+
+    storeData('user', data);
+
     RootNavigation.reset('MainApp');
   };
   const optionTakePhoto = {
